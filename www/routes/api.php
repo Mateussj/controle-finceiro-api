@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OperacoesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('categorias', [OperacoesController::class, 'store']);
+Route::get('categorias', [OperacoesController::class, 'get']);
+Route::get('categorias/{id}', [OperacoesController::class, 'show']);
+Route::put('categorias/{id}', [OperacoesController::class, 'update']);
+Route::delete('categorias/{id}', [OperacoesController::class, 'destroy']);
